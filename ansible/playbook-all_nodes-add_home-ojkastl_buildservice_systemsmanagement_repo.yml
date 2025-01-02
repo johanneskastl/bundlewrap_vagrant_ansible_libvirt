@@ -1,20 +1,20 @@
 ---
-- name: 'Add the systemsmanagement zypper repository'
+- name: 'Add the Branch_systemsmanagement zypper repository'
   hosts: 'all'
   gather_facts: true
   become: true
 
   roles:
     - role: 'johanneskastl.add_zypper_repository'
-      repository_name: 'home-ojkastl_buildservice-systemsmanagement'
-      repository_baseurl: "https://download.opensuse.org/repositories/home:/ojkastl_buildservice:/systemsmanagement/openSUSE_Tumbleweed/"
+      repository_name: 'home-ojkastl_buildservice-Branch_systemsmanagement'
+      repository_baseurl: "https://download.opensuse.org/repositories/home:/ojkastl_buildservice:/Branch_systemsmanagement/openSUSE_Tumbleweed/"
       auto_import_keys: '1'
       when:
         - ansible_distribution == "openSUSE Tumbleweed"
 
     - role: 'johanneskastl.add_zypper_repository'
-      repository_name: 'home-ojkastl_buildservice-systemsmanagement'
-      repository_baseurl: "https://download.opensuse.org/repositories/home:/ojkastl_buildservice:/systemsmanagement/{{ ansible_distribution_version }}/"
+      repository_name: 'home-ojkastl_buildservice-Branch_systemsmanagement'
+      repository_baseurl: "https://download.opensuse.org/repositories/home:/ojkastl_buildservice:/Branch_systemsmanagement/{{ ansible_distribution_version }}/"
       auto_import_keys: '1'
       when:
         - ansible_distribution == "openSUSE Leap"
