@@ -24,3 +24,6 @@
 
 - name: 'Run playbook-all_nodes-install_bundlewrap.yml'
   ansible.builtin.import_playbook: playbook-all_nodes-install_bundlewrap.yml
+
+- name: 'Run playbook-all_nodes-prepare_for_easy_bundlewrap_testing.yml'
+  ansible.builtin.import_playbook: playbook-all_nodes-prepare_for_easy_bundlewrap_testing.yml
