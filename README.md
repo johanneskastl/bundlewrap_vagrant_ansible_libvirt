@@ -14,6 +14,11 @@ Vagrantfile, please beware that this will break the Ansible provisioning.
 1. Make sure the git submodules are fully working by issuing `git submodule init
    && git submodule update`
 1. Run `vagrant up`
+1. Log in using `vagrant ssh`. The `vagrant` user has a SSH key (with an empty
+   passphrase) so it can log in on the VM itself using `ssh localhost`.
+1. Check the [quickstart
+   tutorial](https://docs.bundlewrap.org/guide/quickstart/) and start playing
+   around with bundlewrap.
 1. Party!
 
 ## Cleaning up
