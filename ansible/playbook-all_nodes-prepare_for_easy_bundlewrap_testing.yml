@@ -40,8 +40,12 @@
     - name: 'Make sure the SSH host key is in /home/vagrant/.ssh/known_hosts'
       ansible.builtin.lineinfile:
         path: '/home/vagrant/.ssh/known_hosts'
-        line: "{{ 'localhost ssh-ed25519 ' + (ssh_host_ed25519_key_pub.content | b64decode | split(' '))[1] }}"
+        line: "{{ item + ' ssh-ed25519 ' + (ssh_host_ed25519_key_pub.content | b64decode | split(' '))[1] }}"
         create: true
         owner: 'vagrant'
         group: 'vagrant'
         mode: '0600'
+      loop:
+        - 'localhost'
+        - 'bundlewrap'
+        - "{{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }}"
